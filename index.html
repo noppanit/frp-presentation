@@ -1,97 +1,434 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+<head>
+<meta charset="utf-8">
+<script src="js/jquery-1.11.0.js"></script>
+<script src="js/knockout-3.1.0.js"></script>
+<script src="js/Bacon.min.js"></script>
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+<title>Functional Reactive Programming</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+<meta name="author" content="Hakim El Hattab">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+<link rel="stylesheet" href="css/reveal.min.css">
+<link rel="stylesheet" href="css/theme/default.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+  var link = document.createElement( 'link' );
+  link.rel = 'stylesheet';
+  link.type = 'text/css';
+  link.href = 'css/print/pdf.css';
+  document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+</script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+<!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
 
-	<body>
+<body>
 
-		<div class="reveal">
+<div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-        <div class="slides">
-          <section data-id="0b1727dffeaaaae74fe01ec048066523">
-            <h1>Functional Reactive Programming</h1>
-            <div>
-              <br>
-            </div>
-            <div>@noppanit</div>
-          </section>
+  <!-- Any section element inside of this container is displayed as a slide -->
+  <div class="slides">
+    <section data-id="0b1727dffeaaaae74fe01ec048066523">
+      <h1>Functional <u>
+          <font color="#3d85c6">Reactive</font>
+      </u></h1>
+      <h1>Programming</h1>
+      <div>
+        <br>
+      </div>
+      <div>@noppanit</div>
+    </section>
+    <section data-id="5068c1db0240cac1618f4a84e58a37d4">
+      <h2>History</h2>
+      <div>
+        <br>
+      </div>
+      <div>
+        <br>
+      </div>
+      <div>
+        <br>
+      </div>
+      <div>
+        <a href="http://conal.net/fran/tutorial.htm">http://conal.net/fran/tutorial.htm</a>
+        <br>
+      </div>
+      <div>
+        <br>
+      </div>
+      <div>
+        <a href="http://conal.net/papers/icfp97/">http://conal.net/papers/icfp97/</a>
+        <br>
+      </div>
+    </section>
+    <section data-id="27af09bc57129b2598292dd6f7e4c27c">
+      <h2>Reactive Manifesto</h2>
+      <div>
+        <br>
+      </div>
+      <div>
+        <br>
+      </div>
+      <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/noppanitcharassinvichai/images/322044/stack.png" style="width: 871.0665673127585px; height: 301.80839890006956px; max-height: none; max-width: none;">
+    </section>
+    <section data-id="39ff6b487cedd9dc22f8008ddc7697b8">
+      <h1>
+        <span style="font-size: 135.72px;">How long do you think people will wait for a page to load?</span>
+        <br>
+      </h1>
+    </section>
+    <section data-id="aef097662f6992c7927f17b830781a14">
+      <h1>
+        <br>
+      </h1>
+      <h1>
+        <br>
+      </h1>
+      <h1>2 seconds</h1>
+    </section>
+    <section data-id="dc3dfac595b0c91b2897e68d1a160f6f">
+      <h1>
+        <br>
+      </h1>
+      <h1>
+        <br>
+      </h1>
+      <h1>Wait?</h1>
+    </section>
+    <section data-id="94e9b25825d22000be92ec72f0a1b18f">
+      <h1>
+        <br>
+      </h1>
+      <h1>
+        <br>
+      </h1>
+      <h1>Really?</h1>
+    </section>
+    <section data-id="3ab688ec692a5dbc09761fd3ba9871dd">
+      <h1>
+        <br>
+      </h1>
+      <h1>
+        <br>
+      </h1>
+      <h1>250 milliseconds</h1>
+    </section>
+    <section data-id="6b347c87e18c25807ed7340cf0fc7caa">
+      <h1>
+        <br>
+      </h1>
+      <h1>A bit more of the fundamental</h1>
+    </section>
+    <section data-id="e381d72df6e6b290fba6a0fc481b58ef">
+      <h2>asynchronous</h2>
+      <div>
+        <br>
+      </div>
+      <div>
+        <pre><code>function fetchData(callback) {</code><code>   // get me data</code><code>   callback(data);</code><code>}</code><code>fetchData(function(data) {</code><code>   // do something with the data</code><code>});</code></pre>
+      </div>
+    </section>
+    <section data-id="40a5c89be8ceca51ca9f8b35ddc80dda">
+      <h2>event driven programming</h2>
+      <div>
+        <br>
+      </div>
+      <div>React to events</div>
+      <div>
+        <br>
+      </div>
+      <div>
+        <pre><code>&lt;input type="button" id="submitButton" value="Submit" /&gt;</code></pre>
+      </div>
+      <div>
+        <pre><code>jQuery('#submitButton').click(function() {<br></code><code>     // do some funky stuff</code><code>});</code></pre>
+      </div>
 
-          <section>
-            <canvas id="myCanvas" width="578" height="200"></canvas>
 
-            <input type="button" value="Click"/>
-          </section>
-        </div>
+    </section>
+    <section data-id="f03ee979ccb4a7df0ea4f059a9b900a8">
+      <h2>
+        <br>
+      </h2>
+      <h2>
+        <br>
+      </h2>
+      <h1>Many ways to implement</h1>
+    </section>
+    <section data-id="509ae1da1da2134d6ade297398779b9e">
+      <h2>IEnumerable</h2>
+      <div>
+        <br>
+      </div>
+      <div>
+        <br>
+      </div>
+      <div>
+        <pre><code>interface IEnumerable&lt;T&gt; {</code><code>    IEnumerator&lt;T&gt; GetEnumerator();</code><code>}</code><code>interface IEnumerator&lt;T&gt; {</code><code>    bool MoveNext();</code><code>    T GetCurrent();</code><code>}</code></pre>
+      </div>
+    </section>
+    <section data-id="720da90a319f142b8e481c373807df7d">
+      <h1>
+        <br>
+      </h1>
+      <h1>
+        <span style="font-size: 135.72px;">What's wrong with this?</span>
+        <br>
+      </h1>
+    </section>
+    <section data-id="e2b2bd8cdeebae1bfc7d9e0b0c6a87fa">
+      <h2>
+        <span>It's pull based</span>
+        <br>
+      </h2>
+      <div>
+        <span style="font-size: 135.60804748535156px;">
+          <br>
+        </span>
+      </div>
+      <div>
+        <pre><code>function fetchData() {</code><code>    var products = getProducts();</code><code>    for(var index = 0; index &lt; products.size(); index++) {</code><code>         // populate data </code><code>         // data 1</code><code>         // data 2</code><code>         // data 3</code><code>         // stuck</code><code>    }</code><code>}</code></pre>
+      </div>
+    </section>
+    <section data-id="c0677401aa8ffc16a35bfc98610083e8">
+      <h2>
+        <br>
+      </h2>
+      <div>
+        <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/noppanitcharassinvichai/images/328639/tab-crash-big.png" style="width: 992.4616268188104px; height: 532.3564928700058px; max-height: none; max-width: none;">
+        <br>
+      </div>
+    </section>
+    <section data-id="b8e13fd9f982f9c266ae21e5ba052860">
+      <h2>IObservable</h2>
+      <div>
+        <br>
+      </div>
+      <div>
+        <pre><code>interface IObservable&lt;T&gt; {</code><code>   void Subscribe(IObserver&lt;T&gt; observer);</code><code>}</code></pre>
+      </div>
+      <div>
+        <br>
+      </div>
+      <div>
+        <pre><code>interface IObserver&lt;T&gt; {</code><code>    void OnNext(T value);</code><code>    void OnError();</code><code>    void OnCompleted();</code><code>}</code></pre>
+      </div>
+    </section>
+    <section data-id="17192d0aedd7708c51771e4f5e85619c">
+      <h1>Not interested?</h1>
+    </section>
+    <section data-id="9e888251ee0217b153189141e10469c4">
+      <h1>
+        <br>
+      </h1>
+      <h1>
+        <span style="font-size: 135.72px;">Let's look at some code</span>
+        <br>
+      </h1>
+    </section>
+    <section data-id="697c3c0ce55de62df9506b9e978decef">
+      <h2>simplest example</h2>
+      <div>reactive programming</div>
+      <div>
+        <br>
+      </div>
+      <div>A = X + Y</div>
+      <div>
+        <br>
+      </div>
+      <div>
+        <pre><code>&gt; X = 10;</code><code>10</code><code>&gt; Y = 10;</code><code>10</code><code>&gt; A = X + Y;</code><code>20</code><code>&gt; X = 20;</code><code>&gt; A</code><code>20</code></pre>
+      </div>
+    </section>
 
-		</div>
+    <script>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
-    <script src="js/event_streams.js"></script>
+$(function() {
+    function setA(){  // A=X+Y as integers
+    var A = parseInt($('#X').text()) + parseInt($('#Y').text());
+    $('#A').text( A );
+    }
 
-		<script>
+    setA();
+    $('#X,#Y').css('cursor','pointer').click(function(){
+      // by reaction to a click: updates A and X or Y
+      var obj = $(this);
+      obj.text(parseInt(obj.text())+1);
+      setA();
+      });
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+    });
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+    </script>
+    <section data-id="71837c994e002d5475f4b05f8c907d0f">
+      <h2>Example jQuery</h2>
+      <div>
+        <br>
+      </div>
+      <div>
+        <p>X = <span id="X" title="click here">22</span>
+        </p>
+        <p>Y = <span id="Y" title="click here">33</span>
+        </p>
+        <p>A = X+Y = <span id="A">
+        </span>
+        </p>
+      </div>
+      <div>
+        <br>
+      </div>
+      <div>
+        <pre><code>function setA(){  // A=X+Y as integers
+  var A = parseInt($('#X').text()) + parseInt($('#Y').text());
+  $('#A').text( A );
+}
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
+setA();
+$('#X,#Y').css('cursor','pointer').click(function(){
+  // by reaction to a click: updates A and X or Y
+  var obj = $(this);
+  obj.text(parseInt(obj.text())+1);
+  setA();
+});</code></pre>
+      </div>
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
 
-		</script>
+    </section>
 
-	</body>
+    <section id="knockout-example" data-id="49479b02927694c10df8b460a81afd4a">
+      <h2>Knockout.js</h2>
+      <div>
+        <p>X = <span title="click here" data-bind="text: x, click: clickX" /></p>
+        <p>Y = <span title="click here" data-bind="text: y, click: clickY" /></p>
+        <p>A = X+Y = <span data-bind="text: a"></span></p>
+      </div>
+      <div>
+        <pre><code>
+      var kockoutExample = function KockoutExample() {
+        this.x = ko.observable(22);
+        this.y = ko.observable(33);
+        this.a = ko.computed(function() {
+          return this.x() + this.y();
+        }, this);
+
+        this.clickX = function() {
+          this.x(this.x() + 1);
+        };
+
+        this.clickY = function() {
+          this.y(this.y() + 1);
+        };
+     }
+
+        </code></pre>
+    </div>
+    </section>
+    <script>
+
+$(function() {
+    var kockoutExample = function KockoutExample() {
+      this.x = ko.observable(22);
+      this.y = ko.observable(33);
+      this.a = ko.computed(function() {
+        return this.x() + this.y();
+      }, this);
+
+      this.clickX = function() {
+        this.x(this.x() + 1);
+      };
+
+      this.clickY = function() {
+        this.y(this.y() + 1);
+      };
+    }
+    ko.applyBindings(new kockoutExample());
+    });
+
+    </script>
+    <section data-id="8b8062b93080c67199607fc45a7cd3ac">
+      <h1>
+        <br>
+      </h1>
+      <h1>Event Streams</h1>
+    </section>
+    <section data-id="43dfae016cff0f64b6865c85d5e77fb4">
+      <h2>bacon.js</h2>
+       <div>
+         <p>X = <span id="baconX" title="click here">22</span>
+        </p>
+        <p>Y = <span id="baconY" title="click here">33</span>
+        </p>
+        <p>A = X+Y = <span id="baconA">54</span></p>
+      </div>
+      <div>
+        <br/>
+      </div>
+      <div style="text-align: centre">
+        <canvas id="myCanvas" width="400" height="150"></canvas>
+      </div>
+      <pre><code>
+        var x = $("#X").asEventStream("click").map(1);
+        var y = $("#Y").asEventStream("click").map(1);
+        function sum(x, y) {
+          return x + y;
+        }
+        var a = plus.merge(anotherPlus);
+        </code></pre>
+    </section>
+  </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.min.js"></script>
+<script src="js/event_streams.js"></script>
+
+<script>
+
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+center: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+// Parallax scrolling
+// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+// parallaxBackgroundSize: '2100px 900px',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+]
+});
+
+</script>
+
+</body>
 </html>
