@@ -1,10 +1,10 @@
 // RequestAnimFrame: a browser API for getting smooth animations
 window.requestAnimFrame = (function() {
-    return window.requestAnimationFrame    || 
-        window.webkitRequestAnimationFrame || 
-        window.mozRequestAnimationFrame    || 
-        window.oRequestAnimationFrame      || 
-        window.msRequestAnimationFrame     ||  
+    return window.requestAnimationFrame    ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame    ||
+        window.oRequestAnimationFrame      ||
+        window.msRequestAnimationFrame     ||
         function( callback ) {
             return window.setTimeout(callback, 1000 / 60);
         };
@@ -21,8 +21,8 @@ var ballsSum = [];
 function Ball(number, positionY) {
     this.pos = 400;
     this.render = function() {
-        this.pos -= 1;      
-        
+        this.pos -= 1;
+
         context.beginPath();
         context.fillText(number, this.pos - 3, positionY + 20);
         context.arc(this.pos, positionY, 5, 0, 2 * Math.PI, false);
@@ -65,11 +65,11 @@ function animloop() {
     for(var i = 0; i < ballsX.length; i++) {
         ballsX[i].render();
     }
-    
+
     for(var i = 0; i < ballsY.length; i++) {
         ballsY[i].render();
     }
-    
+
     for(var i = 0; i < ballsSum.length; i++) {
         ballsSum[i].render();
     }
@@ -77,25 +77,25 @@ function animloop() {
 }
 
 
-var plus = $("#baconX").asEventStream("click").map(1);
-plus.onValue(function(value) {
+var plusX = $("#baconX").asEventStream("click").map(1);
+plusX.onValue(function(value) {
   var currentValue = parseInt($("#baconX").text());
   $('#baconX').text(currentValue + 1);
   ballsX.push(new Ball(1, 10));
 });
 
-var anotherPlus = $("#baconY").asEventStream("click").map(1);
-anotherPlus.onValue(function(value) {
+var plusY = $("#baconY").asEventStream("click").map(1);
+plusY.onValue(function(value) {
     var currentValue = parseInt($("#baconY").text());
     $('#baconY').text(currentValue + 1);
-    ballsY.push(new Ball(1, 10));
+    ballsY.push(new Ball(1, 50));
 });
 
 function sum(x, y) {
     return x + y;
 }
 
-var both = plus.merge(anotherPlus);
+var both = plusX.merge(plusY);
 both.scan(0, sum).onValue(function(sum) {
     var currentValue = parseInt($("#baconA").text());
     ballsSum.push(new Ball(sum, 90));
@@ -104,4 +104,3 @@ both.scan(0, sum).onValue(function(sum) {
 
 
 animloop();
-
